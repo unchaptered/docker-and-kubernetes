@@ -8,7 +8,7 @@ Setup `--watch` option with docker.
 | --- | ---------- | ----- | ------- |
 | 1 | [First Docker](https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20First%20Docker) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile | init |
 | 2 | [Second Docker - File System](https://github.com/unchaptered/docker-and-kubernetes/tree/main/2.%20Second%20Docker%20-%20File%20System) | - | 
-| 3 | [Third Docker - Optimizim Caching](https://github.com/unchaptered/docker-and-kubernetes/tree/main/3.%20Third%20Docker%20-%20Optimizim%20Caching) | - |
+| 3 | [Third Docker - Optimizim Caching](https://github.com/unchaptered/docker-and-kubernetes/tree/main/3.%20Third%20Docker%20-%20Optimizim%20Caching) | Cache node_modules |
 
 ## Get Started
 
