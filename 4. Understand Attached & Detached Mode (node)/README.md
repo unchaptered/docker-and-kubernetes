@@ -1,15 +1,15 @@
 [< Previous Docs](../README.md)
 
-# Understand Attached & Detached Mode
+# Understand Attached & Detached Mode (node)
 
 Setup `--watch` option with docker.
 
 | ROW | TITLE      | New Steps | Details |
 | --- | ---------- | ----- | ------- |
-| 1 | [Initialization](https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20Initialization) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile | init |
-| 2 | [Understand File System](https://github.com/unchaptered/docker-and-kubernetes/tree/main/2.%20Understand%20File%20System) | - | 
-| 3 | [Understand Layer](https://github.com/unchaptered/docker-and-kubernetes/tree/main/3.%20Understand%20Layer) | Cache node_modules |
-| 4 | [Understand Attached & Detached Mode](https://github.com/unchaptered/docker-and-kubernetes/tree/main/4.%20Understand%20Attached%20&%20Detached%20Mode) | - |
+| 1 | [Initialization (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20Initialization%20(node)) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile | init |
+| 2 | [Understand File System (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/2.%20Understand%20File%20System%20(node)) | - | 
+| 3 | [Understand Layer (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/3.%20Understand%20Layer%20(node)) | Cache node_modules |
+| 4 | [Understand Attached & Detached Mode (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/4.%20Understand%20Attached%20&%20Detached%20Mode%20(node)) | - |
 
 ## 1. Get Started
 

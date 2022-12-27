@@ -1,10 +1,10 @@
 [< Previous Docs](../README.md)
 
-# Initialization
+# Initialization (node)
 
 | ROW | TITLE      | Steps |
 | --- | ---------- | ----- | 
-| 1 | Initialization | Setup Docker <br> Build Dockerfile <br> Run Dockerfile |
+| 1 | [Initialization (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20Initialization%20(node)) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile |
 
 ## Get Started
 

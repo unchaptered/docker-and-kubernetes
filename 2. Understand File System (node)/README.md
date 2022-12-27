@@ -1,13 +1,13 @@
 [< Previous Docs](../README.md)
 
-# Second Docker
+# Second Docker (node)
 
 Improve simple file system between `host system` and `image/container system`.
 
 | ROW | TITLE      | New Steps | Details |
 | --- | ---------- | ----- | ------- |
-| 1 | [Initialization](https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20Initialization) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile | init |
-| 2 | [Understand File System](https://github.com/unchaptered/docker-and-kubernetes/tree/main/2.%20Understand%20File%20System) | - | 
+| 1 | [Initialization (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20Initialization%20(node)) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile | init |
+| 2 | [Understand File System (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/2.%20Understand%20File%20System%20(node)) | - | 
 
 ## Get Started
 
