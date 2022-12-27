@@ -4,7 +4,8 @@
   "description": "Learning for Docker and Kubernetes",
   "main": "README-GENERATOR.js",
   "scripts": {
-    "start": "tsc -p tsconfig.json",
+    "prestart": "tsc -p tsconfig.json",
+    "start": "node dist/readme.generator.js",
     "dev": "tsc-watch --onSuccess \"node dist/readme.generator.js\""
   },
   "repository": {
