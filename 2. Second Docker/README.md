@@ -2,20 +2,22 @@
 
 # Second Docker
 
-| ROW | TITLE      | Steps | Details |
+Improve simple file system between `host system` and `image/container system`.
+
+| ROW | TITLE      | New Steps | Details |
 | --- | ---------- | ----- | ------- |
 | 1 | [First Docker](https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20First%20Docker) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile | init |
-| 2 | [Second Docker]((https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20Second%20Docker)) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile | simplifier than FIrst Docker | 
-
-
-***After***
+| 2 | [Second Docker](https://github.com/unchaptered/docker-and-kubernetes/tree/main/2.%20Second%20Docker) | - | 
 
 ## Get Started
 
 ```cmd
 docker build .
-docker run -p 3000:3000 DOCKER-ID
+docker run -p 3000:80 DOCKER-ID
 ```
+
+- 3000 means `your local port'.
+- 80 means 'your code port in docker'.
 
 ## Environment
 
