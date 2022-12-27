@@ -1,8 +1,8 @@
 # First Docker
 
-- [x] Setup Docker
-- [x] Build Dockerfile
-- [x] Run Dockerfile
+| ROW | TITLE      | Steps |
+| --- | ---------- | ----- | 
+| 1 | First Docker | Setup Docker <br> Build Dockerfile <br> Run Dockerfile |
 
 ## Get Started
 
