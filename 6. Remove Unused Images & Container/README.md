@@ -2,8 +2,6 @@
 
 # Remove Unused Images & Container
 
-Setup `--watch` option with docker.
-
 | ROW | TITLE      | New Steps | Details |
 | --- | ---------- | ----- | ------- |
 | 1 | [Initialization (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20Initialization%20(node)) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile | init |
@@ -126,7 +124,6 @@ docker rmi IMAGE-ID
 ```sh
 docker run -p 3000:80 -d ---rm IMAGE-ID
 ```
-
 
 ## 2. Environment
 

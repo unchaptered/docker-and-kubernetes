@@ -2,7 +2,7 @@
 
 # Understand Attached & Detached Mode (node)
 
-Setup `--watch` option with docker.
+Set-up Attached & Detached Container
 
 | ROW | TITLE      | New Steps | Details |
 | --- | ---------- | ----- | ------- |

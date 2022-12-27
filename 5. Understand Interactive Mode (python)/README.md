@@ -2,7 +2,7 @@
 
 # Understand Interactive Mode (python)
 
-Setup `--watch` option with docker.
+Set-up Interactive Container
 
 | ROW | TITLE      | New Steps | Details |
 | --- | ---------- | ----- | ------- |
