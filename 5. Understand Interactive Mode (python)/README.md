@@ -1,6 +1,6 @@
 [< Previous Docs](../README.md)
 
-# Understand Attached & Detached Mode (node)
+# Understand Interactive Mode (python)
 
 Setup `--watch` option with docker.
 
@@ -10,6 +10,7 @@ Setup `--watch` option with docker.
 | 2 | [Understand File System (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/2.%20Understand%20File%20System%20(node)) | - | 
 | 3 | [Understand Layer (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/3.%20Understand%20Layer%20(node)) | Cache node_modules |
 | 4 | [Understand Attached & Detached Mode (node)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/4.%20Understand%20Attached%20&%20Detached%20Mode%20(node)) | Switch Attach & Detach Mode |
+| 5 | [Understand Interactive Mode (python)](https://github.com/unchaptered/docker-and-kubernetes/tree/main/5.%20Understand%20Interactive%20Mode%20(python)) | Interactive mode |
 
 ## 1. Get Started
 
@@ -28,6 +29,10 @@ docker start -a CONTAINER-NAME # Attach mode with start
 
 docker logs CONTAINER-NAME
 docker logs -f CONTAINER-NAME # Keep waiting new logs
+
+# INTERACTIVE MODE (same...)
+docker run -i -t CONTAINER-ID
+docker run -it CONTAINER-ID
 ```
 
 - 3000 means `your local port'.
@@ -70,6 +75,31 @@ docker start CONTAINER-NAME
 
 - `Attached` means 'connect to node.js console'.
 - `Detaced` is not.
+
+### 1.4. Interactive Mode
+
+Basically, Docker Application can't interact dev's keyboards and so on...
+
+So, we need to enable `Interactive Mode` to connect these system.
+
+#### 1.4.1. Interactive Mode in `RUN`
+
+```cmd
+docker run -i -t CONTAINER-ID
+docker run -it CONTAINER-ID
+```
+
+#### 1.4.2. Interactive Mode in `START`
+
+
+_Before running..._
+
+```cmd
+docker start -a -i CONTAINER-ID
+```
+
+- option `a` : start with attached mode
+- option `i` : start with interactive mode
 
 ## 2. Environment
 
