@@ -4,6 +4,13 @@
 - [x] Build Dockerfile
 - [x] Run Dockerfile
 
+## Get Started
+
+```cmd
+docker build .
+docker run -p 3000:3000 DOCKER-ID
+```
+
 ## Environment
 
 ```
