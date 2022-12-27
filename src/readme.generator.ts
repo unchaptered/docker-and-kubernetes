@@ -6,6 +6,8 @@ import { convertMarkdownFile } from './markdown.converter';
 const temporalPath = path.join(__dirname, '/../');
 const EXCEPT_SET = new Set([
     '.git',
+    '.github',
+    '.gitignore',
     'dist',
     'node_modules',
     'package-lock.json',
