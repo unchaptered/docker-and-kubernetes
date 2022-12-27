@@ -1,10 +1,10 @@
 [< Previous Docs](../README.md)
 
-# First Docker
+# Initialization
 
 | ROW | TITLE      | Steps |
 | --- | ---------- | ----- | 
-| 1 | First Docker | Setup Docker <br> Build Dockerfile <br> Run Dockerfile |
+| 1 | Initialization | Setup Docker <br> Build Dockerfile <br> Run Dockerfile |
 
 ## Get Started
 

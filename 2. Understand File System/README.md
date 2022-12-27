@@ -6,8 +6,8 @@ Improve simple file system between `host system` and `image/container system`.
 
 | ROW | TITLE      | New Steps | Details |
 | --- | ---------- | ----- | ------- |
-| 1 | [First Docker](https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20First%20Docker) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile | init |
-| 2 | [Second Docker - File System](https://github.com/unchaptered/docker-and-kubernetes/tree/main/2.%20Second%20Docker%20-%20File%20System) | - | 
+| 1 | [Initialization](https://github.com/unchaptered/docker-and-kubernetes/tree/main/1.%20Initialization) | Setup Docker <br> Build Dockerfile <br> Run Dockerfile | init |
+| 2 | [Understand File System](https://github.com/unchaptered/docker-and-kubernetes/tree/main/2.%20Understand%20File%20System) | - | 
 
 ## Get Started
 
