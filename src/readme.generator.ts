@@ -1,24 +1,18 @@
 import fs from 'fs';
-import path from 'path';
 
 import { convertMarkdownFile } from './markdown.converter';
+import { getFolderList } from './folder.explorer';
 
-const temporalPath = path.join(__dirname, '/../');
-const EXCEPT_SET = new Set([
-    '.git',
-    '.github',
-    '.gitignore',
-    'dist',
-    'node_modules',
-    'package-lock.json',
-    'package.json',
-    'README.md',
-    'src',
-    'tsconfig.json'
-]);
+const topFolderList = getFolderList('/');
+const secTopFolderList = topFolderList.map(topFolder => getFolderList(topFolder));
 
-const fileList = fs.readdirSync(temporalPath);
-const fileteredFileList = fileList.filter(file => !EXCEPT_SET.has(file));
-const markdown = convertMarkdownFile(fileteredFileList);
+const folderMap = new Map();
+for (let idx = 0; idx < topFolderList.length; idx++) {
+    folderMap.set(
+        topFolderList[idx],
+        secTopFolderList[idx]
+    );
+}
 
+const markdown = convertMarkdownFile(folderMap);
 fs.writeFileSync('./README.md', markdown, { encoding: 'utf8' });
