@@ -5,6 +5,7 @@ const EXCEPT_SET = new Set([
     '.git',
     '.github',
     '.gitignore',
+    '.DS_Store',
     'dist',
     'node_modules',
     'package-lock.json',
