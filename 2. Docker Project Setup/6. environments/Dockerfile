@@ -8,7 +8,15 @@ RUN npm install
 
 COPY . /app
 
-EXPOSE 80
+ARG DEFAULT_PORT=80
+
+# Static Environment Value
+# ENV PORT 80
+
+# Dynamic Environment Value
+ENV PORT $DEFAULT_PORT
+
+EXPOSE $PORT
 
 # [ "INSDIE CONTAINER PATH" ]
 # VOLUME [ "/app/feedback" ]
