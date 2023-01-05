@@ -6,8 +6,8 @@ This application depends on Dummy API, 'https://swapi.dev/api' for testing Netwo
 
 In this docs, you can learn `manaul connect` between dockerized mongo cluster and dockerized node.js application.
 
-- Pros : Litter harder than [manual connect](../1.%20manual%20connect%20(dockerized%20mongodb%26node.js)/README.md)
-- Cons : Nope
+- Pros : Very flexible solution
+- Cons : A little harder than [manual connect](../1.%20manual%20connect%20(dockerized%20mongodb%26node.js)/README.md)
 
 ## 1. Get Started
 
