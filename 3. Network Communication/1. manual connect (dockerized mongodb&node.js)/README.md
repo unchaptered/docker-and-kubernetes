@@ -1,11 +1,13 @@
 [< Backward](../README.md)
 
-# Initialization (node)
+# manual connect (dockerized mognodb&node.js)
 
 This application depends on Dummy API, 'https://swapi.dev/api' for testing Network Communication.
 
-Request from Container to WWW.
+In this docs, you can learn `manaul connect` between dockerized mongo cluster and dockerized node.js application.
 
+- Pros : Easy
+- Cons : Every dockerized build for mongo, you must update node.js images.
 
 ## 1. Get Started
 
