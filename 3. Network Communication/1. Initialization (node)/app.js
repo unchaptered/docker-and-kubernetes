@@ -46,7 +46,7 @@ app.post('/favorites', async (req, res) => {
       .json({ message: 'Favorite saved!', favorite: favorite.toObject() });
   } catch (error) {
     res.status(500).json({ message: 'Something went wrong.' });
-  }
+  } 
 });
 
 app.get('/movies', async (req, res) => {
@@ -67,8 +67,19 @@ app.get('/people', async (req, res) => {
   }
 });
 
+/**
+ * Every running new mongo cluster with docker...
+ * Manually update this Host Adrress with docker container inspect `MONGO CONTAINER NAME`, 
+ */
+const DOCKERIZED_ADDRESS = '127.0.0.1';
+
+/**
+ * Host MongoDB + Host Node.js : 'mongodb://localhost:27017/swfavorites',
+ * Host MongoDB + Dockerize Node.js : 'mongodb://host.docker.internal:27017/swfavorites'
+ * Dockerize MongoDB + Dockerize Node.js : '${DOCKERIZED ADDRESS(checkout README.md)}/swfavorites'
+ */
 mongoose.connect(
-  'mongodb://localhost:27017/swfavorites',
+  `mongodb://${DOCKERIZED_ADDRESS}:27017/swfavorites`,
   { useNewUrlParser: true },
   (err) => {
     if (err) {
