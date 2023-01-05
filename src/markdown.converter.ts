@@ -1,12 +1,12 @@
 function getFormatedFolder(folderName: string) {
-        // '1. Docker Core'
-        // [ '1. ', 'Docker Core' ]
-        const splitedFolder = folderName.split('. ');
+    // '1. Docker Core'
+    // [ '1. ', 'Docker Core' ]
+    const splitedFolder = folderName.split('. ');
 
-        // 'Docker Core'
-        const formatedFolder = splitedFolder[1];
+    // 'Docker Core'
+    const formatedFolder = splitedFolder[1];
 
-        return formatedFolder
+    return formatedFolder
 }
 export function convertMarkdownFile(folderMap: Map<string, string[]>): string {
     let markdown = `
