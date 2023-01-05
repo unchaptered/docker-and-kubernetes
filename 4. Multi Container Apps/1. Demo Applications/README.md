@@ -79,6 +79,7 @@ mongoose.connect(
 # require ["2.1."]
 docker build -t test-server:beta .
 
+<<<<<<< HEAD
 
 docker run --name test-backend -d --rm -p 80:80 test-server:beta
     # -p HOST_PORT:DOCKERIZED_PORT
@@ -109,4 +110,7 @@ CMD ["npm", "start"]
 docker build -t test-frontend:beta .
 
 docker run --name test-frontend -d --rm -p 3000:3000 -it test-frontend:beta
+=======
+docker run --name test-backend -d --rm -p 3000:80 test-server:beta
+>>>>>>> 6e142693cc73ba96d610e04fe4561dc2d377c736
 ```
