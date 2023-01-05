@@ -14,7 +14,11 @@ docker run --name test-mongo -d --rm mongo
 
 ## 2. Steps
 
-### 2.1. Host node.js will connect Dockerized Mongo.
+1. Host node.js will connect Dockerized mongo.
+2. Dockerized node.js will connect Dockerized mongo.
+3. Dockerized react.js spa will connect Dockerized node.js
+
+### 2.1. Host node.js will connect Dockerized mongo.
 
 ```sh
 cd ~/backend
@@ -25,13 +29,13 @@ docker run --name test-mongo -d --rm -p 27107:27017 mongo
 node app.js
 ```
 
-### 2.2. Dockerized node.js will connecdt Dockerized Mongo.
+### 2.2. Dockerized node.js will connect Dockerized mongo.
 
 1. Create Dockerfile
 2. Update app.js
 3. Build images and run using it.
 
-- 2.1.1. Create Dockerfile
+- 2.2.1. Create Dockerfile
 
 ```Dockerfile
 FROM node:14
@@ -78,4 +82,31 @@ docker build -t test-server:beta .
 
 docker run --name test-backend -d --rm -p 80:80 test-server:beta
     # -p HOST_PORT:DOCKERIZED_PORT
+```
+
+### 2.3. Dockerized react.js spa will connect Dockerized node.js
+
+- 2.3.1. Create Dockerfile
+
+```Dockerfile
+FROM node:14
+
+WORKDIR /app
+
+COPY package-lock.json /app
+
+RUN npm ci
+
+COPY . /app
+
+CMD ["npm", "start"]
+```
+
+- 2.3.2. Build images and run using it
+
+```sh
+# require ["2.1.", "2.2."]
+docker build -t test-frontend:beta .
+
+docker run --name test-frontend -d --rm -p 3000:3000 -it test-frontend:beta
 ```
