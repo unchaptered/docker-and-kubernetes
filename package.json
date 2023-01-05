@@ -13,7 +13,11 @@
     "url": "git+https://github.com/unchaptered/docker-and-kubernetes.git"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "unchaptered <MinSeok, Lee>",
+    "email": "workstation19961002@gmail.com",
+    "url": "https://www.linkedin.com/feed/"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/unchaptered/docker-and-kubernetes/issues"
