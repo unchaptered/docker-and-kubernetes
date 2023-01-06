@@ -28,6 +28,7 @@ app.use((req, res, next) => {
 
 app.get('/goals', async (req, res) => {
   console.log('TRYING TO FETCH GOALS');
+  
   try {
     const goals = await Goal.find();
     res.status(200).json({
@@ -90,7 +91,8 @@ const MONGO_PASSWORD = 'unchap_pwd';
 const MONGO_AUTH = `${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}`;
 
 mongoose.connect(
-  `mongodb://${MONGO_AUTH}:27017/course-goals`,
+  // unchap_name:unchap_pwd@test-mongo
+  `mongodb://${MONGO_AUTH}:27017/course-goals?authSource=admin`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

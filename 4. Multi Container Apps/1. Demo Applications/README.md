@@ -18,6 +18,8 @@ docker run --name test-mongo -d --rm mongo
 2. Dockerized node.js will connect Dockerized mongo.
 3. Dockerized react.js spa will connect Dockerized node.js
 4. Use Network to connect among Isolated Containers.
+5. Use volume to make Mongo as a persistant.
+6. Use security option to make Mongo more secure.
 
 ### 2.1. Host node.js will connect Dockerized mongo.
 
@@ -78,10 +80,10 @@ mongoose.connect(
 
 ```sh
 # require ["2.1."]
-docker build -t test-server:beta .
+docker build -t test-backend:beta .
 
 
-docker run --name test-backend -d --rm -p 80:80 test-server:beta
+docker run --name test-backend -d --rm -p 80:80 test-backend:beta
     # -p HOST_PORT:DOCKERIZED_PORT
 ```
 
@@ -112,7 +114,7 @@ docker build -t test-frontend:beta .
 docker run --name test-frontend -d --rm -p 3000:3000 -it test-frontend:beta
     # -it : if you don't add -it(interactive mode) with react application, you can't run react container.
     
-docker run --name test-backend -d --rm -p 3000:80 test-server:beta
+docker run --name test-backend -d --rm -p 3000:80 test-backend:beta
 ```
 
 ### 2.4. Use Network to connect among Isolated Containers.
@@ -135,14 +137,14 @@ const MONGO_URL = 'test-mongo';
 
 ```sh
 cd ~/backend
-docker build -t test-server:beta .
+docker build -t test-backend:beta .
 ```
 
 - 2.4.3. Restart all container
 
 ```sh
 docker run --name test-mongo    --network test-network -d --rm mongo
-docker run --name test-backend  --network test-network -p 80:80 -d --rm test-server:beta
+docker run --name test-backend  --network test-network -p 80:80 -d --rm test-backend:beta
 docker run --name test-frontend -p 3000:3000 -d --rm -it test-frontend:beta
 ```
 
@@ -193,7 +195,8 @@ mongoose.connect(
 - 2.6.2. Restart mongo
 
 ```sh
-docker run --name test-mongo    --network test-network -v test-mongo-data:/data/db --rm -d \
+docker run --name test-mongo    --network test-network --rm -d \
+    -v test-mongo-data:/data/db \
     -e MONGO_INITDB_ROOT_USERNAME=unchap_name \
     -e MONGO_INITDB_ROOT_PASSWORD=unchap_pwd \
     mongo
@@ -206,5 +209,61 @@ cd ~/backend
 
 docker build -t test-backend:beta .
 
-docker run --name test-backend  --network test-network -p 80:80 -d --rm test-server:beta
+docker run --name test-backend  --network test-network -p 80:80 -d --rm test-backend:beta
+```
+
+### 2.7. Use volume to make Node as a persistant.
+    
+```sh
+docker run \
+    --name test-backend \
+    --network test-network \
+    -d -p 80:80 \
+    --rm \
+    -v test-backend-logs:/app/logs \
+    -v /mnt/c/Kevin/Practice-Docker/Tutorial/4_Multi_Container_Apps/1_Demo_Applications/backend:/app \
+    -v /app/node_mdules \
+    test-backend:beta
+```
+
+### 2.8. Use nodemon to update with volume to make Node as synchorized with host files.
+
+- Install and setup nodemon
+
+```json
+"scripts": {
+    "start": "nodemon app.js"
+},
+
+"devDependencies": {
+    "nodemon": "^2.0.4"
+}
+```
+
+- Update Dockerfile
+
+```Dockerfile
+# Before
+CMD ["node", "app.js"]
+
+# After
+CMD ["npm", "start"]
+```
+
+- Rebuild and restart node application
+
+```sh
+cd ~/backend
+
+docker build -t test-backend:beta .
+
+docker run \
+    --name test-backend \
+    --network test-network \
+    -d -p 80:80 \
+    --rm \
+    -v test-backend-logs:/app/logs \
+    -v /mnt/c/Kevin/Practice-Docker/Tutorial/4_Multi_Container_Apps/1_Demo_Applications/backend:/app \
+    -v /app/node_mdules \
+    test-backend:beta
 ```
