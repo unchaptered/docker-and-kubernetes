@@ -83,7 +83,7 @@ app.delete('/goals/:id', async (req, res) => {
   }
 });
 
-const MONGO_URL = 'host.docker.internal';
+const MONGO_URL = 'test-mongo';
 
 mongoose.connect(
   `mongodb://${MONGO_URL}:27017/course-goals`,

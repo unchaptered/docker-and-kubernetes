@@ -79,7 +79,6 @@ mongoose.connect(
 # require ["2.1."]
 docker build -t test-server:beta .
 
-<<<<<<< HEAD
 
 docker run --name test-backend -d --rm -p 80:80 test-server:beta
     # -p HOST_PORT:DOCKERIZED_PORT
@@ -110,7 +109,38 @@ CMD ["npm", "start"]
 docker build -t test-frontend:beta .
 
 docker run --name test-frontend -d --rm -p 3000:3000 -it test-frontend:beta
-=======
+    # -it : if you don't add -it(interactive mode) with react application, you can't run react container.
+    
 docker run --name test-backend -d --rm -p 3000:80 test-server:beta
->>>>>>> 6e142693cc73ba96d610e04fe4561dc2d377c736
+```
+
+### 2.4. Use Network to connect among Isolated Containers.
+
+- 2.4.1. Create docker network
+
+```sh
+docker network create test-network
+```
+
+- 2.4.2. Rebuild node application
+
+```js
+// Before
+const MONGO_URL = 'host.docker.internal';
+
+// After
+const MONGO_URL = 'test-mongo';
+```
+
+```sh
+cd ~/backend
+docker build -t test-server:beta .
+```
+
+- 2.4.3. Restart all container
+
+```sh
+docker run --name test-mongo    --network test-network -d --rm mongo
+docker run --name test-backend  --network test-network -p 80:80 -d --rm test-server:beta
+docker run --name test-frontend -p 3000:3000 -d --rm -it test-frontend:beta
 ```
