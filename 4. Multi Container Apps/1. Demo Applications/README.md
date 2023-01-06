@@ -17,6 +17,7 @@ docker run --name test-mongo -d --rm mongo
 1. Host node.js will connect Dockerized mongo.
 2. Dockerized node.js will connect Dockerized mongo.
 3. Dockerized react.js spa will connect Dockerized node.js
+4. Use Network to connect among Isolated Containers.
 
 ### 2.1. Host node.js will connect Dockerized mongo.
 
@@ -143,4 +144,67 @@ docker build -t test-server:beta .
 docker run --name test-mongo    --network test-network -d --rm mongo
 docker run --name test-backend  --network test-network -p 80:80 -d --rm test-server:beta
 docker run --name test-frontend -p 3000:3000 -d --rm -it test-frontend:beta
+```
+
+### 2.5. Use volume to make Mongo as a persistant.
+
+```sh
+docker run --name test-mongo    --network test-network -v test-mongo-data:/data/db --rm -d mongo
+```
+
+P.S. Why we're using Volume? Not Bind Mounts.
+
+<img
+    style="width: 600px;"
+    src="../../images/mongo-volume.png"/>
+
+In [Official Documents of Mongo](https://hub.docker.com/_/mongo), use `Bind Mounts` to persist data.<br>
+This method is good for testing mongo database.
+
+But, generally just `Volume` is enough to perstat data.
+
+### 2.6. Use security option to make Mongo more secure.
+
+- 2.6.1. Update backend
+```js
+// Before
+const MONGO_URL = 'test-mongo';
+
+mongoose.connect(
+    `mongodb://${MONGO_URL}:27017/course-goals`,
+    { /* Options */ },
+    () => { /* Callbacks */ }
+);
+
+// After
+const MONGO_URL = 'test-mongo';
+const MONGO_USERNAME = 'unchap_name';
+const MONGO_PASSWORD = 'unchap_pwd';
+
+const MONGO_AUTH = `${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}`;
+
+mongoose.connect(
+    `mongodb://${MONGO_AUTH}:27017/course-goals`,
+    { /* Options */ },
+    () => { /* Callbacks */ }
+);
+```
+
+- 2.6.2. Restart mongo
+
+```sh
+docker run --name test-mongo    --network test-network -v test-mongo-data:/data/db --rm -d \
+    -e MONGO_INITDB_ROOT_USERNAME=unchap_name \
+    -e MONGO_INITDB_ROOT_PASSWORD=unchap_pwd \
+    mongo
+```
+
+- 2.6.3. Rebuild and Restart node.js application
+
+```sh
+cd ~/backend
+
+docker build -t test-backend:beta .
+
+docker run --name test-backend  --network test-network -p 80:80 -d --rm test-server:beta
 ```
