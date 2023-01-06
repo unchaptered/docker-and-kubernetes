@@ -84,9 +84,13 @@ app.delete('/goals/:id', async (req, res) => {
 });
 
 const MONGO_URL = 'test-mongo';
+const MONGO_USERNAME = 'unchap_name';
+const MONGO_PASSWORD = 'unchap_pwd';
+
+const MONGO_AUTH = `${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_URL}`;
 
 mongoose.connect(
-  `mongodb://${MONGO_URL}:27017/course-goals`,
+  `mongodb://${MONGO_AUTH}:27017/course-goals`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
